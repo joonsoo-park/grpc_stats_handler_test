@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "dice/proto";
+
+package proto;
+
+service Dice {
+    rpc Greet(GreetRequest) returns (GreetResponse) {}
+}
+
+message GreetRequest {
+    string name = 1;
+    string msg = 2;
+    int32 age = 3;
+}
+
+message GreetResponse {
+    string greeting = 1;
+}
