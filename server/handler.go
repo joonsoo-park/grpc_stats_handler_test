@@ -58,6 +58,11 @@ func (h *MyHandler) HandleRPC(ctx context.Context, s stats.RPCStats) {
 			fmt.Println(k.GetName())
 			fmt.Println(k.GetMsg())
 			fmt.Println(k.GetAge())
+			v := ctx.Value(rpcCtxKey{})
+			switch v.(type) {
+			case *stats.RPCTagInfo:
+				fmt.Println(v)
+			}
 		}
 	}
 }
